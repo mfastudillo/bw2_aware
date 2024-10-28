@@ -9,17 +9,17 @@ __version__ = (0, 3)
 
 from .aware import AnnualAgricultural, AnnualNonagricultural
 from bw2regional.pandarus_remote import remote, AlreadyExists
-
+import bw2data as bd
 
 METHODS = (AnnualAgricultural, AnnualNonagricultural)
 
 
 
-def import_global_aware(biosphere="biosphere3"):
+def import_global_aware(biosphere=bd.config.biosphere):
     raise NotImplementedError("This package only provide regionalized CFs")
 
 
-def import_regionalized_aware(biosphere="biosphere3"):
+def import_regionalized_aware(biosphere=bd.config.biosphere):
     for method in METHODS:
         method(biosphere).import_regional_method()
 

@@ -1,4 +1,4 @@
-from bw2data import Database, Method
+from bw2data import Database, Method,config
 from bw2regional import geocollections
 import os
 import wrapt
@@ -20,7 +20,7 @@ def regionalized_setup(wrapped, instance, args, kwargs):
 
 
 class LCIA:
-    def __init__(self, biosphere="biosphere3"):
+    def __init__(self, biosphere=config.biosphere):
         self.db = Database(biosphere)
         self.method = Method(self.name)
 
